@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNION - Discord Services</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #1e1e1e;
+        color: #e5e5e5;
+        scroll-behavior: smooth;
+    }
+    header {
+        background: linear-gradient(135deg, #2a2a2a, #1e1e1e);
+        color: white;
+        padding: 3rem 1rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    header h1 {
+        font-size: 2.5rem;
+        background: linear-gradient(270deg, #ff0066, #ffcc00, #33ccff, #cc33ff);
+        background-size: 600% 600%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientFlow 8s ease infinite;
+    }
+    @keyframes gradientFlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        background-color: #2a2a2a;
+        padding: 0.75rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+    }
+    nav a::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background: #ffcc00;
+        left: 0;
+        bottom: -3px;
+        transition: 0.3s;
+    }
+    nav a:hover::after {
+        width: 100%;
+    }
+    section {
+        padding: 2rem;
+        max-width: 1100px;
+        margin: auto;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.6s ease-out;
+    }
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .plans {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+    .plan {
+        flex: 1;
+        min-width: 280px;
+        background: #2b2b2b;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, box-shadow 0.3s ease;
+    }
+    .plan:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+    }
+    .plan h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #ffcc00;
+    }
+    .plan ul {
+        list-style: none;
+        padding: 0;
+    }
+    .plan ul li {
+        margin: 0.5rem 0;
+    }
+    .order-btn {
+        display: inline-block;
+        background: linear-gradient(45deg, #ff0066, #ffcc00, #33ccff, #cc33ff);
+        background-size: 300% 300%;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-decoration: none;
+        animation: gradientShift 3s ease infinite;
+        transition: transform 0.2s ease;
+    }
+    .order-btn:hover {
+        transform: scale(1.05);
+    }
+    @keyframes gradientShift {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+    .faq-item {
+        background: #2b2b2b;
+        border-radius: 8px;
+        margin: 0.5rem 0;
+        padding: 1rem;
+        cursor: pointer;
+    }
+    .faq-item h4 {
+        margin: 0;
+    }
+    .faq-item p {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+    .faq-item.active p {
+        max-height: 500px;
+    }
+    .fab {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #ff0066, #ffcc00, #33ccff);
+        background-size: 300% 300%;
+        color: white;
+        border-radius: 50%;
+        padding: 15px 20px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        animation: gradientShift 3s ease infinite;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>UNION - Discord Services</h1>
+        <p>Professional & Affordable Discord Bot & Server Services</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#prices">Prices</a>
+        <a href="#faq">FAQ</a>
+        <a href="#order">Order</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to UNION</h2>
+        <p>We create custom Discord bots and provide premium hosting at affordable prices. Whether you run a small community or a massive server, we’ve got the perfect plan for you.</p>
+    </section>
+
+    <section id="prices">
+        <h2>Our Plans</h2>
+        <div class="plans">
+            <div class="plan">
+                <h3>Normal Plan</h3>
+                <p><b>Price:</b> 49 Robux</p>
+                <p><b>Hosting Weekly:</b> 99 Robux</p>
+                <p><b>Hosting Lifetime:</b> ❌</p>
+                <ul>
+                    <li>✅ Custom bot</li>
+                    <li>✅ Limitless features</li>
+                    <li>❌ Can ask for more additions after purchase</li>
+                    <li>❌ Can be used in multiple servers</li>
+                    <li>✅ Hosted by me</li>
+                </ul>
+            </div>
+            <div class="plan">
+                <h3>Enterprise Plan</h3>
+                <p><b>Price:</b> 149 Robux</p>
+                <p><b>Hosting Weekly:</b> 99 Robux</p>
+                <p><b>Hosting Lifetime:</b> 849 Robux</p>
+                <ul>
+                    <li>✅ Custom bot</li>
+                    <li>✅ Limitless features</li>
+                    <li>✅ Can ask for more additions after purchase</li>
+                    <li>✅ Can be used in multiple servers</li>
+                    <li>✅ Hosted by me</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>How can I trust you?</h4>
+            <p>Well that's the case, this business is a matter of trust. Our bots are securely made with no flaws or backdoors. We save tokens, sources and host it on trusted platforms. Your bot will be in safe hands.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Are there other ways I can pay?</h4>
+            <p>Of course! Just join our server and contact me. (User: 88x.to).</p>
+        </div>
+        <div class="faq-item">
+            <h4>How are payments handled?</h4>
+            <p>You are not able to negotiate for the weekly payment. It is a fixed price. Weekly payments are automated, The UNION bot in our server will notify you when it's time for your payment. You will recieve a default 1 hour extention to pay. If you miss this deadline your bot will no longer function and you will have to pay the 100 for it to function again. (extention increases if ur server is popular) The weekly payment WILL VARY according to your server. If you have an active server where the bot will be used alot then I will require a better host with higher CPU load. So with that I will need more money to get it. (Only for BIG servers. Don't worry!)</p>
+        </div>
+    </section>
+
+    <section id="order" style="text-align:center;">
+        <h2>Order Now</h2>
+        <a href="https://discord.gg/m45FrvmrWK" class="order-btn">Join Discord & Order Now</a>
+    </section>
+
+    <a href="https://discord.gg/m45FrvmrWK" class="fab">💬</a>
+
+    <footer>
+        <p>© 2025 UNION. All rights reserved.</p>
+    </footer>
+
+<script>
+    // Section scroll animation
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+</script>
+</body>
+</html>
